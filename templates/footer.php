@@ -1,11 +1,11 @@
-            </div>
+      </div>
 
-            <div id="bottom">
-                Copyright &#169; Sosia
-            </div>
+      <div id="bottom">
+        Copyright &#169; Sosia
+      </div>
 
-        </div>
+    </div>
 
-    </body>
+  </body>
 
 </html>
