@@ -312,6 +312,24 @@ function get_portfolio_by_currency($portfolio_date)
     return $rows;
    }
 
+/**
+  * Gets IRR for total portfolio
+  */
+
+   function get_portfolio_irr()
+  {
+    // retrieve user's portfolio from database
+    $rows = query("SELECT get_portfolio_irr()");
+
+    if ($rows === false)
+    {
+      apologize("Error in database. Please try again.");
+      exit;
+    }
+
+    return $rows;
+   }
+
 
   /**
   * Get latest date where prices are available for all assets

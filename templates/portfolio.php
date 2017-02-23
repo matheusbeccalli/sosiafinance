@@ -36,7 +36,7 @@
         <td></td>
         <td></td>
         <td><strong>$<?= number_format(calculate_portfolio_total($positions),2) ?></strong></td>
-        <td></td>
+        <td><strong><?= number_format($portfolio_irr[0]["get_portfolio_irr()"] * 100) ?>%</strong></td>
       </tr>
   </tbody>
 </table>
