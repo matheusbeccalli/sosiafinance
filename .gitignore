@@ -39,3 +39,4 @@ Thumbs.db
 # OS generated files #
 ######################
 /includes/constants.php
+*.pem
