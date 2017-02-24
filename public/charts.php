@@ -8,9 +8,12 @@
  // gets the different breakdowns of the portfolio
   $positions_by_asset_type = get_portfolio_by_asset_type($date);
   $positions_by_currency = get_portfolio_by_currency($date);
+  $positions_by_issuer = get_portfolio_by_issuer($date);
 
   // render charts
   render("charts.php", ["positions_by_asset_type" => $positions_by_asset_type,
-             "positions_by_currency" => $positions_by_currency]);
+                        "positions_by_currency" => $positions_by_currency,
+                        "positions_by_issuer" => $positions_by_issuer
+                        ]);
 
  ?>

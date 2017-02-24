@@ -291,6 +291,32 @@ function get_portfolio_by_asset_type($portfolio_date)
   * Gets portfolio broken down by asset currency
   */
 
+function get_portfolio_by_issuer($portfolio_date)
+  {
+    // retrieve user's portfolio from database
+    $rows = query("SELECT issuer_name, SUM(t5.asset_total) AS issuer_total FROM
+            (SELECT t1.asset_id, t4.issuer_name, SUM(asset_quantity)* t3.asset_price AS asset_total
+            FROM dbinvestments.transaction t1 JOIN dbinvestments.asset t2 ON t1.asset_id = t2.asset_id JOIN dbinvestments.asset_price t3 ON t1.asset_id = t3.asset_id JOIN dbinvestments.issuer t4 ON t2.issuer_id = t4.issuer_id
+            WHERE t1.user_id = ? AND asset_price_date = ?
+            GROUP BY asset_id) t5
+            GROUP BY issuer_name
+            ORDER BY issuer_total DESC;",
+            $_SESSION["id"],
+            $portfolio_date);
+
+    if ($rows === false)
+    {
+      apologize("Error in database. Please try again.");
+      exit;
+    }
+
+    return $rows;
+   }
+
+  /**
+  * Gets portfolio broken down by asset currency
+  */
+
 function get_portfolio_by_currency($portfolio_date)
   {
     // retrieve user's portfolio from database
